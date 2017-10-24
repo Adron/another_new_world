@@ -1,2 +1,3 @@
-# another_new_world
-This is a demo repository of setup of a Kubernetes cluster using Terraform in Azure.
+# Azure Kubernetes with Terraform
+
+I wrote a blog entry describing what this sample repository is for and how to deploy Kubernetes with it [here](#).
