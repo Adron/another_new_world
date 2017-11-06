@@ -1,16 +1,16 @@
 resource "azurerm_resource_group" "zura_resource_group" {
-  name = "zuragroup"
+  name     = "zuragroup"
   location = "West US"
 }
 
 resource "azurerm_container_service" "bluekuby" {
-  name = "bluekubyhouse"
-  location = "${azurerm_resource_group.zura_resource_group.location}"
-  resource_group_name = "${azurerm_resource_group.zura_resource_group.name}"
+  name                   = "bluekubyhouse"
+  location               = "${azurerm_resource_group.zura_resource_group.location}"
+  resource_group_name    = "${azurerm_resource_group.zura_resource_group.name}"
   orchestration_platform = "Kubernetes"
 
   master_profile {
-    count = 1
+    count      = 1
     dns_prefix = "${var.azure_cluster_prefix}"
   }
 
@@ -23,14 +23,14 @@ resource "azurerm_container_service" "bluekuby" {
   }
 
   agent_pool_profile {
-    name = "default"
-    count = "${var.azure_node_count}"
+    name       = "default"
+    count      = "${var.azure_node_count}"
     dns_prefix = "kuby.house"
-    vm_size = "Standard_A0"
+    vm_size    = "Standard_A0"
   }
 
   service_principal {
-    client_id = "${var.client_id}"
+    client_id     = "${var.client_id}"
     client_secret = "${var.client_secret}"
   }
 
