@@ -41,4 +41,8 @@ resource "azurerm_container_service" "bluekuby" {
   tags {
     Environment = "Production"
   }
+
+  provisioner "local-exec" {
+    command = "echo 'test' && az acs kubernetes get-credentials --name=\"${azurerm_container_service.bluekuby.name}\" --resource-group=\"${azurerm_resource_group.zura_resource_group.name}\""
+  }
 }
