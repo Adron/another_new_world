@@ -21,7 +21,6 @@ variable "azure_cluster_prefix" {
 
 // Secrets variables
 variable "subscription_id" {}
-
 variable "client_id" {}
 variable "client_secret" {}
 variable "tenant_id" {}
